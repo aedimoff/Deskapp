@@ -10,7 +10,7 @@ class Headers extends React.Component {
       return (
         <li
           key={idx}
-          className={status}
+          id={status}
           onClick={() => this.props.handleTabClick(idx)}
         >
           {header}
@@ -37,7 +37,7 @@ class Tasks extends React.Component {
 
     return (
       <div className="tasks card large">
-        <h1>My Weekly Tasks</h1>
+        {/* <h1>My Weekly Tasks</h1> */}
         <div className="tabs">
           <Headers
             selectedTab={this.state.selectedTab}

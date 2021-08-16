@@ -1,7 +1,49 @@
 .tasks {
-background-color: rgb(130, 60, 120) 
+  background-color: rgb(130, 60, 120);
+}
+
+.tabs {
+  height: 100%;
+  width: 100%;
+}
+
+.tasks > h1 {
+  text-align: center;
+  margin: 10px;
 }
 
 .tab-header {
-    display: flex;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.tab-header > li {
+  border-top: 2px solid floralwhite;
+  border-left: 1px solid floralwhite;
+  border-right: 1px solid floralwhite;
+  border-bottom: 2px solid floralwhite;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 20%;
+  text-align: center;
+  line-height: 23px;
+  cursor: pointer;
+}
+
+.tab-header > li:first-child{
+  border-left: 2px solid floralwhite;
+}
+
+.tab-header > li:last-child{
+  border-right: 2px solid floralwhite;
+}
+
+
+#active {
+    border-bottom: hidden;
+    font-weight: bold;
+}
+
+.tab-content {
+    margin: 20px;
 }
