@@ -38,3 +38,12 @@
   color: floralwhite;
   box-shadow: 2px 2px rgb(70, 70, 70);
 }
+
+.large {
+  width: 30vw;
+  height: 30vw;
+  margin: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: floralwhite;
+  box-shadow: 2px 2px rgb(70, 70, 70);
+}
