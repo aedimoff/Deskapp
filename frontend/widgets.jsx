@@ -3,7 +3,12 @@ import Clock from "./clock";
 import News from "./news";
 import Tasks from "./tasks";
 import Weather from "./weather";
-import FunFact from "./funfact"
+import FunFact from "./funfact";
+
+const tabs = [
+  { title: "One", content: "first tab" },
+  { title: "Two", content: "second tab" },
+];
 
 const Widgets = () => {
   return (
@@ -12,7 +17,7 @@ const Widgets = () => {
       <div className="widgets">
         <Clock />
         <News />
-        <Tasks />
+        <Tasks tabs={tabs} />
         <Weather />
         <FunFact />
       </div>
