@@ -6,8 +6,11 @@ import Weather from "./weather";
 import FunFact from "./funfact";
 
 const tabs = [
-  { title: "One", content: "first tab" },
-  { title: "Two", content: "second tab" },
+  { title: "Monday", content: "first tab" },
+  { title: "Tuesday", content: "second tab" },
+  { title: "Wednesday", content: "second tab" },
+  { title: "Thursday", content: "second tab" },
+  { title: "Friday", content: "second tab" },
 ];
 
 const Widgets = () => {

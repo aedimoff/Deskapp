@@ -36,7 +36,7 @@ class Tasks extends React.Component {
     const tab = this.props.tabs[this.state.selectedTab];
 
     return (
-      <div className="tasks card">
+      <div className="tasks card large">
         <h1>My Weekly Tasks</h1>
         <div className="tabs">
           <Headers
