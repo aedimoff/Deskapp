@@ -60,6 +60,11 @@
   align-self: center;
 }
 
+.task-item {
+  display: flex;
+  justify-content: space-between;
+}
+
 .task {
   display: flex;
   letter-spacing: 0.5px;
@@ -68,4 +73,19 @@
 
 .task-check {
   padding-right: 5px;
+  font-size: 18px;
+}
+
+#completed-true {
+  text-decoration: line-through;
+}
+
+#trash {
+  color: grey;
+  opacity: 0.5;
+}
+
+#trash:hover {
+  color: floralwhite;
+  opacity: 1;
 }
