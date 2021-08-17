@@ -1,5 +1,5 @@
-import React from "react";
-import { BiSquareRounded } from "react-icons/bi";
+import React, { useState } from "react";
+import { BiSquare, BiCheckSquare, BiTrash } from "react-icons/bi";
 ///use local storage to save values on reload
 
 class Headers extends React.Component {
@@ -38,26 +38,45 @@ const TaskForm = (props) => {
   );
 };
 
+const TaskItem = (props) => {
+  let task = props.task;
+  const [clicked, handleClick] = useState(true);
+
+  const checkIcon = (e) => {
+    return e ? <BiSquare /> : <BiCheckSquare />;
+  };
+  return (
+    <li className="task-item">
+      <div className="task">
+        <div className="task-check" onClick={() => handleClick(!clicked)}>
+          {checkIcon(clicked)}
+        </div>
+        <p id={`completed-${!clicked}`}>{task}</p>
+      </div>
+      <BiTrash id="trash"/>
+    </li>
+  );
+};
+
 const TaskList = (props) => {
   let tasks = props.tasks;
 
   return (
     <ul className="task-list">
       {tasks.map((task, i) => (
-        <li key={i} className="task">
-          <BiSquareRounded className="task-check" />
-          <p>{task}</p>
-        </li>
+        <TaskItem key={i} className="task" task={task} />
       ))}
     </ul>
   );
 };
+
 class Tasks extends React.Component {
   constructor(props) {
     super(props);
     const tabs = localStorage.tabs
-      ? JSON.parse(localStorage.tabs)
-      : this.props.tabs;
+    ? JSON.parse(localStorage.tabs)
+    : this.props.tabs;
+    console.log(tabs);
     this.state = { selectedTab: 0, tabs: tabs };
     this.toggleTab = this.toggleTab.bind(this);
     this.addTask = this.addTask.bind(this);
@@ -74,7 +93,7 @@ class Tasks extends React.Component {
     localStorage.setItem("tabs", JSON.stringify(this.state.tabs));
     document.querySelector(".input").value = "";
   }
-
+  
   render() {
     const tab = this.state.tabs[this.state.selectedTab];
 
