@@ -20,12 +20,11 @@ class Headers extends React.Component {
 }
 
 const TaskForm = (props) => {
-
   const handleClick = () => {
     let input = document.getElementById("input").value;
-    let task = {task: input, completed: false}
-    props.addTask(task)
-  }
+    let task = { task: input, completed: false };
+    props.addTask(task);
+  };
 
   return (
     <div className="task-form">
@@ -53,12 +52,18 @@ const TaskItem = (props) => {
   return (
     <li className="task-item">
       <div className="task">
-        <div className="task-check" onClick={() => {toggleCompleted(!clicked), props.updateTask(task, completed)}}>
+        <div
+          className="task-check"
+          onClick={() => {
+            toggleCompleted(!clicked),
+              props.updateTask(task, completed, "update");
+          }}
+        >
           {checkIcon(clicked)}
         </div>
         <p id={`completed-${!clicked}`}>{task}</p>
       </div>
-      <BiTrash id="trash"/>
+      <BiTrash id="trash" onClick={() => props.updateTask(task, completed, "delete")} />
     </li>
   );
 };
@@ -84,8 +89,8 @@ class Tasks extends React.Component {
   constructor(props) {
     super(props);
     const tabs = localStorage.tabs
-    ? JSON.parse(localStorage.tabs)
-    : this.props.tabs;
+      ? JSON.parse(localStorage.tabs)
+      : this.props.tabs;
     this.state = { selectedTab: 0, tabs: tabs };
     this.toggleTab = this.toggleTab.bind(this);
     this.addTask = this.addTask.bind(this);
@@ -104,23 +109,27 @@ class Tasks extends React.Component {
     document.querySelector(".input").value = "";
   }
 
-  updateTask(task, completed) {
+  updateTask(task, completed, action) {
     const tabs = this.state.tabs;
     const tab = tabs[this.state.selectedTab];
-    const tasks = tab.content
+    const tasks = tab.content;
 
-    for(let i = 0; i < tasks.length; i++) {
-      let item = tasks[i]
-      if(item.task === task) {
-        tasks[i] = {task: task, completed: !completed}
-        break;
+    for (let i = 0; i < tasks.length; i++) {
+      let item = tasks[i];
+      if (item.task === task) {
+        if (action === "update") {
+          tasks[i] = { task: task, completed: !completed };
+          break;
+        } else if (action === "delete") {
+          tasks.splice(i, 1)
+        }
       }
     }
 
-    this.setState({ tabs: tabs})
+    this.setState({ tabs: tabs });
     localStorage.setItem("tabs", JSON.stringify(this.state.tabs));
   }
-  
+
   render() {
     const tab = this.state.tabs[this.state.selectedTab];
 
@@ -133,7 +142,11 @@ class Tasks extends React.Component {
             tabs={this.props.tabs}
           />
           <div className="tab-content">
-            <TaskList className="task-list" tasks={tab.content} updateTask={this.updateTask}/>
+            <TaskList
+              className="task-list"
+              tasks={tab.content}
+              updateTask={this.updateTask}
+            />
             <TaskForm className="task-form" addTask={this.addTask} />
           </div>
         </div>
