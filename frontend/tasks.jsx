@@ -1,5 +1,5 @@
 import React from "react";
-
+import { BiSquareRounded } from "react-icons/bi";
 ///use local storage to save values on reload
 
 class Headers extends React.Component {
@@ -39,23 +39,31 @@ const TaskList = (props) => {
 
   if(!tasks.length) return "";
 
-  return(
+  return (
     <ul className="task-list">
       {tasks.map((task, i) => (
-        <li key={i}
-        className="task">
+        <li key={i} className="task">
+          <BiSquareRounded />
           {task}
         </li>
-  ))}
+      ))}
     </ul>
-  )
+  );
 };
 class Tasks extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { selectedTab: 0, tabs: this.props.tabs };
+    const tabs = localStorage.tabs ? JSON.parse(localStorage.tabs) : this.props.tabs;
+    this.state = { selectedTab: 0, tabs: tabs };
     this.toggleTab = this.toggleTab.bind(this);
     this.addTask = this.addTask.bind(this);
+  }
+
+  componentDidMount() {
+    // localStorage.clear()
+    // console.log(localStorage.tabs)
+    //   this.setState({ tabs: JSON.parse(localStorage.tabs) });
+    //   console.log("STateCDM", this.state)
   }
 
   toggleTab(idx) {
@@ -66,11 +74,12 @@ class Tasks extends React.Component {
     const tabs = this.state.tabs;
     tabs[this.state.selectedTab].content.push(task);
     this.setState({ tabs: tabs });
+    localStorage.setItem("tabs", JSON.stringify(this.state.tabs));
     document.querySelector(".input").value = "";
   }
 
   render() {
-    const tab = this.props.tabs[this.state.selectedTab];
+    const tab = this.state.tabs[this.state.selectedTab];
 
     return (
       <div className="tasks card large">
