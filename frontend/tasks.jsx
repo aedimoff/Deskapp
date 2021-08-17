@@ -1,5 +1,5 @@
-import React from "react";
-import { BiSquareRounded } from "react-icons/bi";
+import React, { useState } from "react";
+import { BiSquareRounded, BiCheckSquare } from "react-icons/bi";
 ///use local storage to save values on reload
 
 class Headers extends React.Component {
@@ -38,20 +38,33 @@ const TaskForm = (props) => {
   );
 };
 
+const TaskItem = (props) => {
+  let task = props.task;
+  const [clicked, handleClick] = useState(false);
+
+  const checkIcon = (e) => {
+    return e ? <BiSquareRounded /> : <BiCheckSquare />;
+  };
+  return (
+    <li>
+      <div onClick={() => handleClick(!clicked)}> {checkIcon(clicked)}</div>
+      <p>{task}</p>
+    </li>
+  );
+};
+
 const TaskList = (props) => {
   let tasks = props.tasks;
 
   return (
     <ul className="task-list">
       {tasks.map((task, i) => (
-        <li key={i} className="task">
-          <BiSquareRounded className="task-check" />
-          <p>{task}</p>
-        </li>
+        <TaskItem key={i} className="task" task={task} />
       ))}
     </ul>
   );
 };
+
 class Tasks extends React.Component {
   constructor(props) {
     super(props);
