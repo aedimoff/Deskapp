@@ -30,20 +30,25 @@
   cursor: pointer;
 }
 
-.tab-header > li:first-child{
+.tab-header > li:first-child {
   border-left: 2px solid floralwhite;
 }
 
-.tab-header > li:last-child{
+.tab-header > li:last-child {
   border-right: 2px solid floralwhite;
 }
 
-
 #active {
-    border-bottom: hidden;
-    font-weight: bold;
+  border-bottom: hidden;
+  font-weight: bold;
 }
 
 .tab-content {
-    margin: 20px;
+  margin: 20px;
+}
+
+.task-form {
+  position: absolute;
+  bottom: 50%;
+  right: 36%;
 }
