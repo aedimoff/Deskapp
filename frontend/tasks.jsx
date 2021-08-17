@@ -20,14 +20,18 @@ class Headers extends React.Component {
 }
 
 const TaskForm = (props) => {
-
   const inputValue = () => {
     return document.getElementById("input").value;
   };
 
   return (
     <div className="task-form">
-      <input type="text" placeholder="Add a task" className="input" id="input" />
+      <input
+        type="text"
+        placeholder="Add a task"
+        className="input"
+        id="input"
+      />
 
       <button onClick={() => props.addTask(inputValue())}>Add</button>
     </div>
@@ -37,14 +41,12 @@ const TaskForm = (props) => {
 const TaskList = (props) => {
   let tasks = props.tasks;
 
-  if(!tasks.length) return "";
-
   return (
     <ul className="task-list">
       {tasks.map((task, i) => (
         <li key={i} className="task">
-          <BiSquareRounded />
-          {task}
+          <BiSquareRounded className="task-check" />
+          <p>{task}</p>
         </li>
       ))}
     </ul>
@@ -53,17 +55,12 @@ const TaskList = (props) => {
 class Tasks extends React.Component {
   constructor(props) {
     super(props);
-    const tabs = localStorage.tabs ? JSON.parse(localStorage.tabs) : this.props.tabs;
+    const tabs = localStorage.tabs
+      ? JSON.parse(localStorage.tabs)
+      : this.props.tabs;
     this.state = { selectedTab: 0, tabs: tabs };
     this.toggleTab = this.toggleTab.bind(this);
     this.addTask = this.addTask.bind(this);
-  }
-
-  componentDidMount() {
-    // localStorage.clear()
-    // console.log(localStorage.tabs)
-    //   this.setState({ tabs: JSON.parse(localStorage.tabs) });
-    //   console.log("STateCDM", this.state)
   }
 
   toggleTab(idx) {
@@ -88,10 +85,10 @@ class Tasks extends React.Component {
             selectedTab={this.state.selectedTab}
             toggleTab={this.toggleTab}
             tabs={this.props.tabs}
-          ></Headers>
+          />
           <div className="tab-content">
-            <TaskList tasks={tab.content} />
-            <TaskForm addTask={this.addTask} />
+            <TaskList className="task-list" tasks={tab.content} />
+            <TaskForm className="task-form" addTask={this.addTask} />
           </div>
         </div>
       </div>

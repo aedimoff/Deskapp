@@ -30,6 +30,11 @@
   cursor: pointer;
 }
 
+.tab-header > li:hover {
+  background-color: floralwhite;
+  color: rgb(130, 60, 120);
+}
+
 .tab-header > li:first-child {
   border-left: 2px solid floralwhite;
 }
@@ -45,10 +50,22 @@
 
 .tab-content {
   margin: 20px;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .task-form {
-  position: absolute;
-  bottom: 50%;
-  right: 36%;
+  align-self: center;
+}
+
+.task {
+  display: flex;
+  letter-spacing: 0.5px;
+  padding-bottom: 10px;
+}
+
+.task-check {
+  padding-right: 5px;
 }
