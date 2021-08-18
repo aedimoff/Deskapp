@@ -126,19 +126,23 @@ class Tasks extends React.Component {
       if (item.task === task) {
         if (action === "update") {
           tasks[i] = { task: task, completed: !completed };
+          console.log("task Updated", tasks)
           break;
         } else if (action === "delete") {
-          alert("Permanently delete this task?");
-          tasks.splice(i, 1);
+          if (confirm("Permanently delete this task?")) {
+            tasks.splice(i, 1);
+          }
+          console.log("task deleted", tasks)
         }
       }
     }
 
-    this.setState({ tabs: tabs });
     localStorage.setItem("tabs", JSON.stringify(this.state.tabs));
+    this.setState({ tabs: tabs });
   }
 
   render() {
+    console.log("currState", this.state.tabs[0].content)
     const tab = this.state.tabs[this.state.selectedTab];
 
     return (

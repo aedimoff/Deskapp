@@ -1,3 +1,9 @@
+@media (min-width: 600px) {
+  .task-form {
+    display: none;
+  }
+}
+
 .tasks {
   background-color: var(--purple);
 }
@@ -49,16 +55,19 @@
 }
 
 .content-container {
-  height: 27.5vw;
+  height: 93%;
   border-left: 2px solid var(--white);
 }
 
 .tab-content {
-  padding: 20px;
-  height: 35vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 20px 20px 0px 20px;
+  height: 90%;
+
+}
+
+.task-list {
+  height: 75%;
+  overflow-y: auto;
 }
 
 .task-form {
@@ -67,7 +76,7 @@
 }
 
 #input {
-  font-size: 16px;
+  font-size: 3vh;
   height: 3.5vh;
   width: 20vw;
   align-self: center;
@@ -101,7 +110,7 @@
 .task-item {
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 3vh;
 }
 
 .task {
@@ -115,7 +124,7 @@
 }
 
 .task-check {
-  font-size: 20px;
+  font-size: 3vh;
   padding: 1px 10px 0px 0px;
 }
 
