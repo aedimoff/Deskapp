@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BiSquare, BiCheckSquare, BiTrash } from "react-icons/bi";
-///use local storage to save values on reload
 
 class Headers extends React.Component {
   render() {
@@ -20,8 +19,13 @@ class Headers extends React.Component {
 }
 
 const TaskForm = (props) => {
+
   const handleClick = () => {
     let input = document.getElementById("input").value;
+    if(!input) {
+      alert ("Please enter text")
+      return;
+    }
     let task = { task: input, completed: false };
     props.addTask(task);
   };
@@ -29,13 +33,13 @@ const TaskForm = (props) => {
   return (
     <div className="task-form">
       <input
-        type="text"
-        placeholder="Add a task"
+        type="textarea"
+        placeholder="Create a new task"
         className="input"
         id="input"
       />
 
-      <button onClick={() => handleClick()}>Add</button>
+      <button id="button" onClick={() => handleClick()}>Add</button>
     </div>
   );
 };
@@ -63,7 +67,10 @@ const TaskItem = (props) => {
         </div>
         <p id={`completed-${!clicked}`}>{task}</p>
       </div>
-      <BiTrash id="trash" onClick={() => props.updateTask(task, completed, "delete")} />
+      <BiTrash
+        id="trash"
+        onClick={() => props.updateTask(task, completed, "delete")}
+      />
     </li>
   );
 };
@@ -121,7 +128,8 @@ class Tasks extends React.Component {
           tasks[i] = { task: task, completed: !completed };
           break;
         } else if (action === "delete") {
-          tasks.splice(i, 1)
+          alert("Permanently delete this task?");
+          tasks.splice(i, 1);
         }
       }
     }
@@ -141,13 +149,15 @@ class Tasks extends React.Component {
             toggleTab={this.toggleTab}
             tabs={this.props.tabs}
           />
-          <div className="tab-content">
-            <TaskList
-              className="task-list"
-              tasks={tab.content}
-              updateTask={this.updateTask}
-            />
-            <TaskForm className="task-form" addTask={this.addTask} />
+          <div className="content-container">
+            <div className="tab-content">
+              <TaskList
+                className="task-list"
+                tasks={tab.content}
+                updateTask={this.updateTask}
+              />
+              <TaskForm className="task-form" addTask={this.addTask} />
+            </div>
           </div>
         </div>
       </div>
