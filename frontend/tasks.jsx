@@ -49,12 +49,14 @@ const TaskItem = (props) => {
   let completed = props.task.completed;
 
   const [clicked, toggleCompleted] = useState(!completed);
+  const [deleted, updateList] = useState(false)
 
   const checkIcon = (e) => {
     return e ? <BiSquare /> : <BiCheckSquare />;
   };
   return (
     <li className="task-item">
+      {console.log("id tag", task, `completed-${!clicked}`)}
       <div className="task">
         <div
           className="task-check"
@@ -69,7 +71,7 @@ const TaskItem = (props) => {
       </div>
       <BiTrash
         id="trash"
-        onClick={() => props.updateTask(task, completed, "delete")}
+        onClick={() => {props.updateTask(task, completed, "delete"), updateList(!deleted)}}
       />
     </li>
   );
@@ -137,8 +139,9 @@ class Tasks extends React.Component {
       }
     }
 
-    localStorage.setItem("tabs", JSON.stringify(this.state.tabs));
     this.setState({ tabs: tabs });
+    console.log("State reset", this.state.tabs[0])
+    localStorage.setItem("tabs", JSON.stringify(this.state.tabs));
   }
 
   render() {
