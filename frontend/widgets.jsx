@@ -5,6 +5,7 @@ import Tasks from "./tasks";
 import Weather from "./weather";
 import FunFact from "./funfact";
 
+
 const tabs = [
   { title: "Mon", content: [] },
   { title: "Tues", content: [] },

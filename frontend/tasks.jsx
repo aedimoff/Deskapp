@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Card } from "react-bootstrap";
 import { BiSquare, BiCheckSquare, BiTrash } from "react-icons/bi";
 
 class Headers extends React.Component {
@@ -19,11 +20,10 @@ class Headers extends React.Component {
 }
 
 const TaskForm = (props) => {
-
   const handleClick = () => {
     let input = document.getElementById("input").value;
-    if(!input) {
-      alert ("Please enter text")
+    if (!input) {
+      alert("Please enter text");
       return;
     }
     let task = { task: input, completed: false };
@@ -39,43 +39,55 @@ const TaskForm = (props) => {
         id="input"
       />
 
-      <button id="button" onClick={() => handleClick()}>Add</button>
+      <button id="button" onClick={() => handleClick()}>
+        Add
+      </button>
     </div>
   );
 };
 
-const TaskItem = (props) => {
-  let task = props.task.task;
-  let completed = props.task.completed;
+class TaskItem extends React.Component {
+  // use constructor to set task to state then use setState to rerender component
+  constructor(props) {
+    super(props);
 
-  const [clicked, toggleCompleted] = useState(!completed);
-  const [deleted, updateList] = useState(false)
+    this.state = { clicked: !this.props.task.completed };
+  }
 
-  const checkIcon = (e) => {
+
+  getCheckIcon = (e) => {
     return e ? <BiSquare /> : <BiCheckSquare />;
   };
-  return (
-    <li className="task-item">
-      {console.log("id tag", task, `completed-${!clicked}`)}
-      <div className="task">
-        <div
-          className="task-check"
-          onClick={() => {
-            toggleCompleted(!clicked),
-              props.updateTask(task, completed, "update");
-          }}
-        >
-          {checkIcon(clicked)}
+
+  render() {
+    let { task, updateTask, toggleCompleted } = this.props;
+    let { clicked } = this.state;
+    return (
+      <li className="task-item">
+        <div className="task">
+          <div
+            className="task-check"
+            onClick={() => {
+              console.log("CLICK!")
+              this.setState({ clicked: !clicked }),
+                updateTask(task, clicked, "update");
+            }}
+          >
+            {this.getCheckIcon(clicked)}
+          </div>
+          {console.log("task", task.task)}
+          <div>{task.task}</div>
         </div>
-        <p id={`completed-${!clicked}`}>{task}</p>
-      </div>
-      <BiTrash
-        id="trash"
-        onClick={() => {props.updateTask(task, completed, "delete"), updateList(!deleted)}}
-      />
-    </li>
-  );
-};
+        <BiTrash
+          id="trash"
+          onClick={() => {
+            updateTask(task, clicked, "delete");
+          }}
+        />
+      </li>
+    );
+  }
+}
 
 const TaskList = (props) => {
   let tasks = props.tasks;
@@ -119,37 +131,37 @@ class Tasks extends React.Component {
   }
 
   updateTask(task, completed, action) {
+    console.log("TRASH CLICKED", action);
     const tabs = this.state.tabs;
     const tab = tabs[this.state.selectedTab];
     const tasks = tab.content;
 
     for (let i = 0; i < tasks.length; i++) {
       let item = tasks[i];
-      if (item.task === task) {
+      if (item.task === task.task) {
+        console.log
         if (action === "update") {
-          tasks[i] = { task: task, completed: !completed };
-          console.log("task Updated", tasks)
+          tasks[i] = { task: task.task, completed: !completed };
           break;
-        } else if (action === "delete") {
+        }
+        if (action === "delete") {
           if (confirm("Permanently delete this task?")) {
             tasks.splice(i, 1);
           }
-          console.log("task deleted", tasks)
         }
+      } else {
+        console.log("ITEM NOT FOUND");
       }
     }
 
     this.setState({ tabs: tabs });
-    console.log("State reset", this.state.tabs[0])
     localStorage.setItem("tabs", JSON.stringify(this.state.tabs));
   }
 
   render() {
-    console.log("currState", this.state.tabs[0].content)
     const tab = this.state.tabs[this.state.selectedTab];
-
     return (
-      <div className="tasks card large">
+      <Card className="tasks card large">
         <div className="tabs">
           <Headers
             selectedTab={this.state.selectedTab}
@@ -167,7 +179,7 @@ class Tasks extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </Card>
     );
   }
 }
