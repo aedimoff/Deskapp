@@ -1,30 +1,39 @@
-import React, { setState } from "react";
-// import axios from "axios";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 
 const News = () => {
-  // const [news, setNews] = setState;
 
-  // let newsItem = axios
-  //   .request({
-  //     method: "GET",
-  //     url: "https://bing-news-search1.p.rapidapi.com/news/trendingtopics",
-  //     params: { safeSearch: "Off", textFormat: "Raw" },
-  //     headers: {
-  //       "x-bingapis-sdk": "true",
-  //       "x-rapidapi-key": "cea3f490acmshc761a76968cd96cp1b362ejsn0742e741fccd",
-  //       "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
-  //     },
-  //   })
-  //   .then((res) => setNews(res));
+  const options = {
+    method: "GET",
+    url: "https://bing-news-search1.p.rapidapi.com/news",
+    params: { count: "1", safeSearch: "Moderate", textFormat: "Raw" },
+    headers: {
+      "x-bingapis-sdk": "true",
+      "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
+      "x-rapidapi-key": "cea3f490acmshc761a76968cd96cp1b362ejsn0742e741fccd",
+    },
+  };
 
-  // console.log(news);
+  const [newsTitle, setNewsTitle] = useState(null);
+  const [newsLink, setNewsLink] = useState(null);
 
-  return <div className="news card">Today's News is:</div>;
+  const getNews = () => {
+    axios.request(options).then(res => {
+      setNewsTitle(res.data.value[0].name);
+      setNewsLink(res.data.value[0].url)
+    })
+  }
+
+  useEffect(() =>{
+    getNews()
+  }, []);
+
+  return <div className="news card">
+    Today's News is: {newsTitle} 
+    <a href={newsLink} target="_blank">Read full article</a>
+  </div>;
 };
 
 export default News;
 
 
-//do the axios call in a non-react class
-//render non-react class in this component
-//this was done in Willow when you were trying to put Markers in
