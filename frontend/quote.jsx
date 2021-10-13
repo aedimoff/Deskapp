@@ -25,7 +25,7 @@ const Quote = () => {
   }, []);
 
   return (
-    <Card style={{ height: "20rem" }} className="quote card">
+    <Card style={{ height: "15rem" }} className="quote card">
       <Card.Body>
         <Card.Title>Daily Inspiration</Card.Title>
         <Card.Text>{quote}</Card.Text>

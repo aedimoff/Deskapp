@@ -180,8 +180,8 @@ class Tasks extends React.Component {
     const tab = this.state.tabs[this.state.selectedTab];
     return (
       <Card
-        style={{ height: "20rem" }}
-        className="tasks card large"
+        style={{ height: "25rem" }}
+        className="tasks"
       >
         <div className="tabs">
           <Headers
