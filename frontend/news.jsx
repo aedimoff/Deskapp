@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Card } from "react-bootstrap";
 
 const News = () => {
-
   const options = {
     method: "GET",
     url: "https://bing-news-search1.p.rapidapi.com/news",
@@ -18,22 +18,27 @@ const News = () => {
   const [newsLink, setNewsLink] = useState(null);
 
   const getNews = () => {
-    axios.request(options).then(res => {
+    axios.request(options).then((res) => {
       setNewsTitle(res.data.value[0].name);
-      setNewsLink(res.data.value[0].url)
-    })
-  }
+      setNewsLink(res.data.value[0].url);
+    });
+  };
 
-  useEffect(() =>{
-    getNews()
+  useEffect(() => {
+    getNews();
   }, []);
 
-  return <div className="news card">
-    Today's News is: {newsTitle} 
-    <a href={newsLink} target="_blank">Read full article</a>
-  </div>;
+  return (
+    <Card style={{ height: "15rem" }} className="news card">
+      <Card.Body>
+        <Card.Header>Today's News</Card.Header>
+        <Card.Text>{newsTitle}</Card.Text>
+        <Card.Link href={newsLink} target="_blank">
+          Read full article
+        </Card.Link>
+      </Card.Body>
+    </Card>
+  );
 };
 
 export default News;
-
-

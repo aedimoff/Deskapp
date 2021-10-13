@@ -1,7 +1,5 @@
 import React from "react";
-
-
-
+import { Container, Card } from "react-bootstrap";
 class Clock extends React.Component {
   constructor(props) {
     super(props);
@@ -54,11 +52,10 @@ class Clock extends React.Component {
   render() {
     const time = this.state.time;
     return (
-      <div className="clock card">
-        {/* <h1>Current Time</h1> */}
+      <Card style={{height: '15rem'} }className="clock card">
         <div className="time">{time.toLocaleTimeString()}</div>
         <div className="date">{this.formatDate(time.toLocaleDateString())}</div>
-      </div>
+      </Card>
     );
   }
 }

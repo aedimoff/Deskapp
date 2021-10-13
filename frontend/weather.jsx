@@ -16,7 +16,6 @@ const Weather = () => {
 
   const getWeather = () => {
     navigator.geolocation.getCurrentPosition((pos) => {
-      console.log(pos)
           const options = {
             method: "GET",
             url: "https://weatherapi-com.p.rapidapi.com/current.json",
@@ -49,10 +48,18 @@ const Weather = () => {
 
   return (
     <div>
-      <Card className="weather card">
-        Today's Weather is:{weather} {temp}
+      <Card
+        className="weather card"
+        style={{ height: "20rem" }}
+      >
+        <Card.Body>
+          <Card.Header>Your Weather Report</Card.Header>
+          <Card.Text>
+            {weather} {temp}
+          </Card.Text>
+          <Card.Text>{weatherIcons[weather]}</Card.Text>
+        </Card.Body>
       </Card>
-      {weatherIcons[weather]}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button, InputGroup, FormControl } from "react-bootstrap";
 import { BiSquare, BiCheckSquare, BiTrash } from "react-icons/bi";
 
 class Headers extends React.Component {
@@ -32,16 +32,35 @@ const TaskForm = (props) => {
 
   return (
     <div className="task-form">
-      <input
+      <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Create a new task"
+          aria-label="Create a new task"
+          aria-describedby="basic-addon2"
+          className="input"
+          id="input"
+        />
+        <Button
+          variant="outline-secondary"
+          id="button-addon2"
+          onClick={() => {
+            handleClick();
+          }}
+        >
+          Add
+        </Button>
+      </InputGroup>
+
+      {/* <input
         type="textarea"
         placeholder="Create a new task"
         className="input"
         id="input"
       />
 
-      <button id="button" onClick={() => handleClick()}>
-        Add
-      </button>
+      <Button size="small" id="button" variant="outline-secondary" onClick={() => handleClick()}>
+        Add Task
+      </Button> */}
     </div>
   );
 };
@@ -53,7 +72,6 @@ class TaskItem extends React.Component {
 
     this.state = { clicked: !this.props.task.completed };
   }
-
 
   getCheckIcon = (e) => {
     return e ? <BiSquare /> : <BiCheckSquare />;
@@ -68,7 +86,7 @@ class TaskItem extends React.Component {
           <div
             className="task-check"
             onClick={() => {
-              console.log("CLICK!")
+              console.log("CLICK!");
               this.setState({ clicked: !clicked }),
                 updateTask(task, clicked, "update");
             }}
@@ -139,7 +157,7 @@ class Tasks extends React.Component {
     for (let i = 0; i < tasks.length; i++) {
       let item = tasks[i];
       if (item.task === task.task) {
-        console.log
+        console.log;
         if (action === "update") {
           tasks[i] = { task: task.task, completed: !completed };
           break;
@@ -161,7 +179,10 @@ class Tasks extends React.Component {
   render() {
     const tab = this.state.tabs[this.state.selectedTab];
     return (
-      <Card className="tasks card large">
+      <Card
+        style={{ height: "25rem" }}
+        className="tasks"
+      >
         <div className="tabs">
           <Headers
             selectedTab={this.state.selectedTab}
