@@ -21,7 +21,7 @@ const FunFact = () => {
   }, []);
 
   return (
-    <Card style={{ width: "18rem", height: "18rem" }} className="fun-fact card">
+    <Card style={{ height: "20rem" }} className="fun-fact card">
       <Card.Body>
         <Card.Header>Today's Fun Fact:</Card.Header>
         <Card.Text>{fact}</Card.Text>
