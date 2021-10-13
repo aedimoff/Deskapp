@@ -6,6 +6,7 @@
 
 .tasks {
   background-color: var(--purple);
+  margin-top: 1vw;
 }
 
 .tabs {

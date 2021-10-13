@@ -21,9 +21,9 @@ const Widgets = () => {
       <Row>
         <h1 className="welcome-header">Welcome to your day!</h1>
       </Row>
-      <Row className="widgets">
+      <Row className="widgets-row">
           <Col med={8}>
-            <Row>
+            <Row className="small-card-row">
               <Col><Clock/></Col>
               <Col><Quote/></Col>
               <Col><FunFact/></Col>

@@ -29,7 +29,7 @@ const News = () => {
   }, []);
 
   return (
-    <Card style={{ height: "15rem" }} className="news card">
+    <Card className="news card" id="medium-card">
       <Card.Body>
         <Card.Header>Today's News</Card.Header>
         <Card.Text>{newsTitle}</Card.Text>

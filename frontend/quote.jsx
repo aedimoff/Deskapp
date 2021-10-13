@@ -25,7 +25,7 @@ const Quote = () => {
   }, []);
 
   return (
-    <Card style={{height: '15vw', width: '15vw'}} className="quote card">
+    <Card className="quote card" id="small-card">
       <Card.Body>
         <Card.Title>Daily Inspiration</Card.Title>
         <Card.Text>{quote}</Card.Text>

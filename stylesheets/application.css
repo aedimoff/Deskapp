@@ -33,23 +33,38 @@
 }
 
 .card {
-  /* width: 15vw;
-  height: 15vw; */
-  /* margin: 20px; */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: floralwhite;
   box-shadow: 2px 2px rgb(70, 70, 70);
 }
 
+.widgets-row {
+  width: 79vw;
+  margin-right: auto;
+  margin-left: auto;
+}
 
+.small-card-row {
+  width: fit-content;
+}
 
 .col {
-  padding: 0px; 
+  padding: 0px;
 }
-.large {
-  /* width: 30vw;
-  height: 30vw;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: floralwhite;
-  box-shadow: 2px 2px rgb(70, 70, 70); */
+
+#small-card {
+  height: 17vw;
+  width: 17vw;
+  margin-right: 1vw;
+}
+
+#medium-card {
+  height: 21vw;
+  width: 28vw;
+  margin-bottom: 1vw;
+}
+
+#large-card {
+  height: 25vw;
+  width: 53vw;
 }

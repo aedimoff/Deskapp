@@ -48,10 +48,7 @@ const Weather = () => {
 
   return (
     <div>
-      <Card
-        className="weather card"
-        style={{ height: "20rem" }}
-      >
+      <Card className="weather card" id="medium-card">
         <Card.Body>
           <Card.Header>Your Weather Report</Card.Header>
           <Card.Text>
