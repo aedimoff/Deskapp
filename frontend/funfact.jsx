@@ -1,9 +1,9 @@
-import React, { useState, useEfect, useEffect} from "react";
+import React, { useState, useEfect, useEffect } from "react";
 import axios from "axios";
+import { Card } from "react-bootstrap";
 
 const FunFact = () => {
-
-  const [fact, setFact] = useState(null)
+  const [fact, setFact] = useState(null);
 
   const options = {
     method: "GET",
@@ -14,16 +14,20 @@ const FunFact = () => {
     },
   };
 
-
-
   useEffect(() => {
-      axios.request(options).then((res) => {
-        setFact(res.data[0].fact);
-      });
-  }, [])
+    axios.request(options).then((res) => {
+      setFact(res.data[0].fact);
+    });
+  }, []);
 
-
-  return <div className="fun-fact card">Today's Fun Fact is: {fact}</div>;
+  return (
+    <Card style={{ width: "18rem", height: "18rem" }} className="fun-fact card">
+      <Card.Body>
+        <Card.Header>Today's Fun Fact:</Card.Header>
+        <Card.Text>{fact}</Card.Text>
+      </Card.Body>
+    </Card>
+  );
 };
 
 export default FunFact;
