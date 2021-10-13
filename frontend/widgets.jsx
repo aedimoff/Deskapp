@@ -37,18 +37,6 @@ const Widgets = () => {
             <Col><Weather/></Col>
           </Col> 
       </Row>
-      {/* <Row className="widgets">
-        <Col sm={4}><Clock /></Col>
-        <Col sm={4}><FunFact /></Col>
-        <Col sm={4}><News /></Col>
-      </Row>
-      <Row className="widgets">
-        <Col md={8}><Tasks tabs={tabs} /></Col>
-        <Col sm={4}>
-          <Weather />
-          <Quote />
-        </Col>
-      </Row> */}
     </Container>
   );
 };

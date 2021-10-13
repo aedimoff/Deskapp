@@ -52,7 +52,7 @@ class Clock extends React.Component {
   render() {
     const time = this.state.time;
     return (
-      <Card style={{height: '15rem'} }className="clock card">
+      <Card style={{height: '15vw', width: '15vw'} }className="clock card">
         <div className="time">{time.toLocaleTimeString()}</div>
         <div className="date">{this.formatDate(time.toLocaleDateString())}</div>
       </Card>
