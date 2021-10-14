@@ -33,17 +33,18 @@ class Clock extends React.Component {
       "December",
     ];
 
-    const days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
+    const weekday = {
+      0: "Sunday",
+      1: "Monday",
+      2: "Tuesday",
+      3: "Wednesday",
+      4: "Thursday",
+      5: "Friday",
+      6: "Saturday",
+    }
+  
     let [m, d, y] = date.split("/");
-    return `${days[(d % 7) - 1]} ${months[m - 1]} ${d}, ${y}`;
+    return `${weekday[this.state.time.getDay()]} ${months[m - 1]} ${d}, ${y}`;
   }
 
   tick() {
