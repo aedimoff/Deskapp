@@ -19,6 +19,7 @@ const News = () => {
 
   const getNews = () => {
     axios.request(options).then((res) => {
+      console.log(res.data.value[0])
       setNewsTitle(res.data.value[0].name);
       setNewsLink(res.data.value[0].url);
     });
