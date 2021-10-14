@@ -49,7 +49,6 @@ const Weather = () => {
     <div>
       <Card className="weather card" id="medium-card">
         <Card.Body>
-          {/* <Card.Title>Your Weather Report</Card.Title> */}
           <div className="weather-body">
             <Card.Text className="weather-temp">{temp}</Card.Text>
             <Card.Text className="weather-img">
