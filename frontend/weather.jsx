@@ -7,12 +7,9 @@ import { RiMistLine, RiCloudLine } from "react-icons/ri";
 import { WiRain, WiDayCloudy } from "react-icons/wi";
 
 const Weather = () => {
-  // const [coords, setCoords] = useState(null)
-  // const coords = navigator.geolocation.getCurrentPosition;
 
   const [temp, setTemp] = useState(null);
   const [weather, setWeather] = useState(null);
-  const [location, setLocation] = useState(null);
 
   const getWeather = () => {
     navigator.geolocation.getCurrentPosition((pos) => {
