@@ -1,0 +1,26 @@
+.weather {
+  background-color: rgb(17, 130, 115);
+  align-items: center;
+}
+
+.weather-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-temp {
+  font-size: 5vw;
+  padding-top: 3.1rem;
+}
+
+.weather-description {
+  text-align: center;
+  font-size: 2vw;
+  font-weight: lighter;
+}
+
+.weather-img {
+  font-size: 12vw;
+}

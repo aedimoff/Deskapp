@@ -16,45 +16,47 @@ const Weather = () => {
 
   const getWeather = () => {
     navigator.geolocation.getCurrentPosition((pos) => {
-          const options = {
-            method: "GET",
-            url: "https://weatherapi-com.p.rapidapi.com/current.json",
-            params: { q: `q=${pos.coords.latitude}, ${pos.coords.longitude}` },
-            headers: {
-              "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
-              "x-rapidapi-key":
-                "cea3f490acmshc761a76968cd96cp1b362ejsn0742e741fccd",
-            },
-          };
+      const options = {
+        method: "GET",
+        url: "https://weatherapi-com.p.rapidapi.com/current.json",
+        params: { q: `q=${pos.coords.latitude}, ${pos.coords.longitude}` },
+        headers: {
+          "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
+          "x-rapidapi-key":
+            "cea3f490acmshc761a76968cd96cp1b362ejsn0742e741fccd",
+        },
+      };
       axios.request(options).then((res) => {
+        setTemp(`${res.data.current.temp_f}°F`);
         setWeather(res.data.current.condition.text);
-        setTemp(res.data.current.temp_f);
       });
     });
   };
 
-
   const weatherIcons = {
-    "Sunny": <BsSun />,
-    "Clear": <BsSun />,
-    "Mist": <RiMistLine />,
+    Sunny: <BsSun />,
+    Clear: <BsSun />,
+    Mist: <RiMistLine />,
     "Partly cloudy": <WiDayCloudy />,
     "Light rain": <WiRain />,
-    "Rain": <WiRain />,
-    "Overcast": <RiCloudLine />,
+    Rain: <WiRain />,
+    Overcast: <RiCloudLine />,
   };
 
-  useEffect(() => (getWeather()), []);
+  useEffect(() => getWeather(), []);
 
   return (
     <div>
       <Card className="weather card" id="medium-card">
         <Card.Body>
-          <Card.Header>Your Weather Report</Card.Header>
-          <Card.Text>
-            {weather} {temp}
-          </Card.Text>
-          <Card.Text>{weatherIcons[weather]}</Card.Text>
+          {/* <Card.Title>Your Weather Report</Card.Title> */}
+          <div className="weather-body">
+            <Card.Text className="weather-temp">{temp}</Card.Text>
+            <Card.Text className="weather-img">
+              {weatherIcons[weather]}
+            </Card.Text>
+          </div>
+          <Card.Title className="weather-description">{weather}</Card.Title>
         </Card.Body>
       </Card>
     </div>

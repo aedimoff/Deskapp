@@ -38,6 +38,10 @@
   box-shadow: 2px 2px rgb(70, 70, 70);
 }
 
+.card-body {
+  width: 100%;
+}
+
 .widgets-row {
   width: 79vw;
   margin-right: auto;
