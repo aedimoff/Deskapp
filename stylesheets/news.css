@@ -2,6 +2,55 @@
     background-color: rgb(20, 120, 220);
 }
 
+.news-header {
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 8px;
+    width: 91%;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: var(--header);
+}
+
+.news-article {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.news-image {
+    width: 36%;
+    border-radius: calc(.25rem - 1px);
+    float: right;
+    margin: 5px 0px 6px 17px;
+}
+.news-title {
+    text-transform: uppercase;
+    font-weight: bolder;
+    line-height: 23px;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.news-body {
+    align-self: center;
+    color: black;
+    margin-left: auto;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 26px;
+}
+
+.news-link {
+    color: white;
+    text-decoration: underline;
+}
+
+
+
+
 
 
 

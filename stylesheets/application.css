@@ -1,7 +1,9 @@
 :root {
   --purple: rgb(130, 60, 120);
   --white: rgb(240, 246, 250);
-  --main-font: sans-serif, monospace;
+  --main-font: 'Libre Baskerville', serif;
+  --headings-fancy: 'Dancing Script', cursive;
+
 }
 
 #root {

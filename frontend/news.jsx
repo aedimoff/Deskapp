@@ -15,12 +15,15 @@ const News = () => {
   };
 
   const [newsTitle, setNewsTitle] = useState(null);
+  const [newsArticle, setNewsArticle] = useState(null);
   const [newsLink, setNewsLink] = useState(null);
+  const [newsThumbnail, setNewsThumbnail] = useState(null);
 
   const getNews = () => {
     axios.request(options).then((res) => {
-      console.log(res.data.value[0])
+      console.log(res.data.value[0]);
       setNewsTitle(res.data.value[0].name);
+      setNewsArticle(res.data.value[0].description);
       setNewsLink(res.data.value[0].url);
     });
   };
@@ -32,11 +35,22 @@ const News = () => {
   return (
     <Card className="news card" id="medium-card">
       <Card.Body>
-        <Card.Header>Today's News</Card.Header>
-        <Card.Text>{newsTitle}</Card.Text>
-        <Card.Link href={newsLink} target="_blank">
-          Read full article
-        </Card.Link>
+        <Card.Title className="news-header">Today's News</Card.Title>
+        <article className="news-article">
+          <Card.Img
+            className="news-image"
+            src="https://www.bing.com/th?id=OVFT.LX5GIRNThAlgN4_zb7FNNi&pid=News"
+            alt="News Thumbnail"
+          ></Card.Img>
+
+          <Card.Text className="news-title">{newsTitle}</Card.Text>
+          <Card.Text className="news-body">
+            {newsArticle}...{" "}
+            <Card.Link className="news-link" href={newsLink} target="_blank">
+              Read full article
+            </Card.Link>
+          </Card.Text>
+        </article>
       </Card.Body>
     </Card>
   );

@@ -18,18 +18,18 @@ const Quote = () => {
   };
 
   useEffect(() => {
-    axios.request(options).then((res) => {
-      setQuote(res.data.text);
-      setAuthor(res.data.author);
-    });
+    // axios.request(options).then((res) => {
+    //   setQuote(res.data.text);
+    //   setAuthor(res.data.author);
+    // });
   }, []);
 
   return (
     <Card className="quote card" id="small-card">
       <Card.Body>
-        <Card.Title>Daily Inspiration</Card.Title>
+        {/* <Card.Title>Daily Inspiration</Card.Title>
         <Card.Text>{quote}</Card.Text>
-        <Card.Text>~ {author}</Card.Text>
+        <Card.Text>~ {author}</Card.Text> */}
       </Card.Body>
     </Card>
   );

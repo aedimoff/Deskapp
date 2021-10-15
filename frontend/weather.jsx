@@ -24,7 +24,7 @@ const Weather = () => {
         },
       };
       axios.request(options).then((res) => {
-        setTemp(`${res.data.current.temp_f}°F`);
+        setTemp(`${Math.round(res.data.current.temp_f)}°F`);
         setWeather(res.data.current.condition.text);
       });
     });

@@ -22,5 +22,7 @@
 }
 
 .weather-img {
-  font-size: 12vw;
+  font-size: 9vw;
+  margin-top: 27px;
+  margin-left: 28px;
 }
