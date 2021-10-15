@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card } from "react-bootstrap";
-import regeneratorRuntime from "regenerator-runtime";
 import { BsSun } from "react-icons/bs";
 import { RiMistLine, RiCloudLine } from "react-icons/ri";
 import { WiRain, WiDayCloudy } from "react-icons/wi";
@@ -41,7 +40,6 @@ const Weather = () => {
   };
 
   useEffect(() => getWeather(), []);
-
   return (
     <div>
       <Card className="weather card" id="medium-card">

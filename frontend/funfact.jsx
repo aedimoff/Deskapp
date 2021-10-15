@@ -23,8 +23,8 @@ const FunFact = () => {
   return (
     <Card className="fun-fact card" id="small-card">
       <Card.Body>
-        <Card.Header>Today's Fun Fact:</Card.Header>
-        <Card.Text>{fact}</Card.Text>
+        <Card.Title className="fact-title">Did You Know?</Card.Title>
+        <Card.Text className="fact-body">{fact}</Card.Text>
       </Card.Body>
     </Card>
   );

@@ -1,9 +1,8 @@
 :root {
   --purple: rgb(130, 60, 120);
   --white: rgb(240, 246, 250);
-  --main-font: 'Libre Baskerville', serif;
-  --headings-fancy: 'Dancing Script', cursive;
-
+  --main-font: "Libre Baskerville", serif;
+  --headings-fancy: "Dancing Script", cursive;
 }
 
 #root {
@@ -17,12 +16,11 @@
 }
 
 .welcome-header {
-  /* grid-area: header; */
-  height: 6vh;
+  height: 7vh;
   text-align: center;
   color: floralwhite;
   font-weight: bold;
-  font-size: 42px;
+  font-size: 2.8vw;
   width: 100%;
   border-bottom: 1px solid floralwhite;
   margin: 1rem;
@@ -35,7 +33,6 @@
 }
 
 .card {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: floralwhite;
   box-shadow: 2px 2px rgb(70, 70, 70);
 }

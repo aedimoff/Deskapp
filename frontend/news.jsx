@@ -21,9 +21,9 @@ const News = () => {
 
   const getNews = () => {
     axios.request(options).then((res) => {
-      console.log(res.data.value[0]);
       setNewsTitle(res.data.value[0].name);
       setNewsArticle(res.data.value[0].description);
+      setNewsThumbnail(res.data.value[0].image.thumbnail.contentUrl);
       setNewsLink(res.data.value[0].url);
     });
   };
@@ -39,7 +39,7 @@ const News = () => {
         <article className="news-article">
           <Card.Img
             className="news-image"
-            src="https://www.bing.com/th?id=OVFT.LX5GIRNThAlgN4_zb7FNNi&pid=News"
+            src={newsThumbnail}
             alt="News Thumbnail"
           ></Card.Img>
 
