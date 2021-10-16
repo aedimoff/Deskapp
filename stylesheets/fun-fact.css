@@ -1,5 +1,6 @@
 .fun-fact {
   background-color: rgb(200, 8, 20);
+  overflow-y: auto;
 }
 
 .fact-title {

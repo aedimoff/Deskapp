@@ -86,15 +86,13 @@ class TaskItem extends React.Component {
           <div
             className="task-check"
             onClick={() => {
-              console.log("CLICK!");
               this.setState({ clicked: !clicked }),
                 updateTask(task, clicked, "update");
             }}
           >
             {this.getCheckIcon(clicked)}
           </div>
-          {console.log("task", task.task)}
-          <div>{task.task}</div>
+          <div className="task-title">{task.task}</div>
         </div>
         <BiTrash
           id="trash"
@@ -149,7 +147,6 @@ class Tasks extends React.Component {
   }
 
   updateTask(task, completed, action) {
-    console.log("TRASH CLICKED", action);
     const tabs = this.state.tabs;
     const tab = tabs[this.state.selectedTab];
     const tasks = tab.content;
@@ -157,7 +154,6 @@ class Tasks extends React.Component {
     for (let i = 0; i < tasks.length; i++) {
       let item = tasks[i];
       if (item.task === task.task) {
-        console.log;
         if (action === "update") {
           tasks[i] = { task: task.task, completed: !completed };
           break;
