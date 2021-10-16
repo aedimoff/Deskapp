@@ -5,7 +5,6 @@
   --headings-fancy: "Dancing Script", cursive;
 }
 
-
 body {
   height: 100%;
   width: 100%;
@@ -44,12 +43,9 @@ body {
 
 .widgets-row {
   width: 79vw;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.small-card-row {
-  width: fit-content;
+  position: absolute;
+  left: 17%;
+  top: 13%;
 }
 
 .col {
@@ -65,10 +61,10 @@ body {
 #medium-card {
   height: 21vw;
   width: 28vw;
-  margin-bottom: 1vw;
+  margin-bottom: 3vw;
 }
 
 #large-card {
-  height: 25vw;
-  width: 53vw;
+  height: 23vw;
+  width: 38.5vw;
 }
