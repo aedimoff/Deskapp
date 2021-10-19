@@ -1,5 +1,5 @@
 .weather {
-  background-color: rgb(17, 130, 115);
+  background-color: var(--green);
   align-items: center;
 }
 

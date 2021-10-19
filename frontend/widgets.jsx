@@ -5,7 +5,6 @@ import News from "./news";
 import Tasks from "./tasks";
 import Weather from "./weather";
 import FunFact from "./funfact";
-import Quote from "./quote";
 
 const tabs = [
   { title: "Mon", content: [] },
@@ -25,7 +24,6 @@ const Widgets = () => {
           <Col med={6}>
             <Row className="small-card-row">
               <Col><Clock/></Col>
-              {/* <Col><Quote/></Col> */}
               <Col><FunFact/></Col>
             </Row>
             <Row>

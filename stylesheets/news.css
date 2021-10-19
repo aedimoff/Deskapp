@@ -1,5 +1,5 @@
 .news {
-    background-color: rgb(20, 120, 220);
+    background-color: var(--blue);
     overflow-y: auto;
 }
 

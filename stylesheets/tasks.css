@@ -39,16 +39,16 @@
 }
 
 .tab-header > li:hover {
-  background-color: var(--white);
+  background-color: lightgray;
   color: var(--purple);
 }
 
 .tab-header > li:first-child {
-  border-left: 2px solid var(--white);
+  border-left: 2px solid lightgray;
 }
 
 .tab-header > li:last-child {
-  border-right: 2px solid var(--white);
+  border-right: 2px solid lightgray;
 }
 
 #active {
@@ -58,7 +58,7 @@
 
 .content-container {
   height: 100%;
-  border-left: 2px solid var(--white);
+  border-left: 2px solid lightgray;
 }
 
 .tab-content {

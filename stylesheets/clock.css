@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: rgb(25, 123, 25);
+  background-color: var(--teal);
   text-align: center;
 }
 

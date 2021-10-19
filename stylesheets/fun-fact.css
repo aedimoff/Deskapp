@@ -1,12 +1,13 @@
 .fun-fact {
-  background-color: rgb(200, 8, 20);
+  background-color: var(--pink);
   overflow-y: auto;
 }
+
 
 .fact-title {
   text-align: center;
   padding-bottom: 6px;
-  border-bottom: 1px solid floralwhite;
+  border-bottom: 1px solid lightgray;
 }
 
 .fact-body {

@@ -1,6 +1,11 @@
 :root {
-  --purple: rgb(130, 60, 120);
+  --purple: rgb(66, 40, 93);
+  --blue: rgb(31, 60, 94);
+  --green: rgb(25, 80, 75);
+  --pink: rgb(90, 35, 68);
+  --teal: rgb(47, 85, 94);
   --white: rgb(240, 246, 250);
+  --outline: rgb(95, 99, 104);
   --main-font: "Libre Baskerville", serif;
   --headings-fancy: "Dancing Script", cursive;
 }
@@ -8,7 +13,7 @@
 body {
   height: 100%;
   width: 100%;
-  background-color: rgb(20, 30, 40);
+  background-color: rgb(32, 32, 36);
 }
 
 .container {
@@ -18,11 +23,11 @@ body {
 .welcome-header {
   height: 7vh;
   text-align: center;
-  color: floralwhite;
+  color: lightgray;
   font-weight: bold;
   font-size: 2.8vw;
   width: 100%;
-  border-bottom: 1px solid floralwhite;
+  border-bottom: 1px solid var(--outline);
   margin: 1rem;
 }
 
@@ -33,8 +38,7 @@ body {
 }
 
 .card {
-  color: floralwhite;
-  box-shadow: 2px 2px rgb(70, 70, 70);
+  color: lightgray;
 }
 
 .card-body {
