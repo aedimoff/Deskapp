@@ -1,5 +1,6 @@
 .news {
     background-color: rgb(20, 120, 220);
+    overflow-y: auto;
 }
 
 .news-header {
