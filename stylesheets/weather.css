@@ -1,0 +1,28 @@
+.weather {
+  background-color: var(--green);
+  align-items: center;
+}
+
+.weather-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-temp {
+  font-size: 5vw;
+  padding-top: 3.1rem;
+}
+
+.weather-description {
+  text-align: center;
+  font-size: 2vw;
+  font-weight: lighter;
+}
+
+.weather-img {
+  font-size: 9vw;
+  margin-top: 27px;
+  margin-left: 28px;
+}

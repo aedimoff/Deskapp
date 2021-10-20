@@ -1,19 +1,59 @@
 .news {
-    background-color: rgb(20, 120, 220);
+    background-color: var(--blue);
+    overflow-y: auto;
 }
 
-.quote {
-  background-color: rgb(20, 60, 117);
+.news-header {
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 8px;
+    width: 91%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.weather {
-  background-color: rgb(17, 130, 115)
+.news-article {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.fun-fact {
-  background-color: rgb(200, 8, 20)
-  
+.news-image {
+    width: 36%;
+    border-radius: calc(.25rem - 1px);
+    float: right;
+    margin: 5px 0px 6px 17px;
 }
+.news-title {
+    text-transform: uppercase;
+    font-weight: bolder;
+    line-height: 2.2vh;
+    font-size: 1.8vh;
+    margin-bottom: 4px;
+}
+
+.news-body {
+    align-self: center;
+    color: black;
+    margin-left: auto;
+    text-align: justify;
+    font-size: 1.8vh;
+    line-height: 2.4vh;
+}
+
+.news-link {
+    color: white;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
 
 /* background-color: rgb(220, 60, 25)  */
 /* background-color: rgb(75, 65, 150)  */

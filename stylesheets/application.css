@@ -1,58 +1,75 @@
 :root {
-  --purple: rgb(130, 60, 120);
-  --white: floralwhite;
-  --main-font: sans-serif, monospace;
+  --purple: rgb(66, 40, 93);
+  --blue: rgb(31, 60, 94);
+  --green: rgb(25, 80, 75);
+  --pink: rgb(90, 35, 68);
+  --red: rgb(91, 43, 42);
+  --teal: rgb(47, 85, 94);
+  --white: rgb(240, 246, 250);
+  --outline: rgb(95, 99, 104);
+  --main-font: "Libre Baskerville", serif;
+  --headings-fancy: "Dancing Script", cursive;
 }
 
-#root {
-  height: 100vh;
-  width: 100vw;
-  background-color: rgb(20, 30, 40);
+body {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(32, 32, 36);
 }
 
 .container {
   max-width: 100%;
-  /* height: 100vh;
-  width: 100vw; */
 }
 
-
-
-
 .welcome-header {
-  /* grid-area: header; */
-  height: 6vh;
+  height: 7vh;
   text-align: center;
-  color: floralwhite;
+  color: lightgray;
   font-weight: bold;
-  font-size: 42px;
+  font-size: 2.8vw;
   width: 100%;
-  border-bottom: 1px solid floralwhite;
+  border-bottom: 1px solid var(--outline);
   margin: 1rem;
 }
 
 .widgets {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto 3fr auto;
-  grid-column-gap: 8px;
-  align-self: center;
-  width: 100%; */
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .card {
-  /* width: 15vw;
-  height: 15vw; */
-  /* margin: 20px; */
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: floralwhite;
-  box-shadow: 2px 2px rgb(70, 70, 70);
+  color: lightgray;
 }
 
-.large {
-  /* width: 30vw;
-  height: 30vw;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: floralwhite;
-  box-shadow: 2px 2px rgb(70, 70, 70); */
+.card-body {
+  width: 100%;
+}
+
+.widgets-row {
+  width: 79vw;
+  position: absolute;
+  left: 17%;
+  top: 13%;
+}
+
+.col {
+  padding: 0px;
+}
+
+#small-card {
+  height: 17vw;
+  width: 17vw;
+  margin-right: 1vw;
+}
+
+#medium-card {
+  height: 21vw;
+  width: 28vw;
+  margin-bottom: 3vw;
+}
+
+#large-card {
+  height: 23vw;
+  width: 38.5vw;
 }

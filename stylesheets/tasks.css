@@ -5,12 +5,14 @@
 }
 
 .tasks {
-  background-color: var(--purple);
+  background-color: var(--red);
+  margin-top: 2vw;
 }
 
 .tabs {
-  height: 20rem;
-  width: 1fr;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .tasks > h1 {
@@ -28,8 +30,8 @@
   border-left: 1px solid var(--white);
   border-right: 1px solid var(--white);
   border-bottom: 2px solid var(--white);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   width: 20%;
   text-align: center;
   line-height: 23px;
@@ -37,16 +39,16 @@
 }
 
 .tab-header > li:hover {
-  background-color: var(--white);
+  background-color: lightgray;
   color: var(--purple);
 }
 
 .tab-header > li:first-child {
-  border-left: 2px solid var(--white);
+  border-left: 2px solid lightgray;
 }
 
 .tab-header > li:last-child {
-  border-right: 2px solid var(--white);
+  border-right: 2px solid lightgray;
 }
 
 #active {
@@ -55,60 +57,37 @@
 }
 
 .content-container {
-  height: 90%;
-  border-left: 2px solid var(--white);
+  height: 100%;
+  border-left: 2px solid lightgray;
 }
 
 .tab-content {
   padding: 20px 20px 0px 20px;
-  height: 90%;
+  height: 96%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 
 .task-list {
-  height: 2fr;
+  padding: 22px;
   overflow-y: auto;
 }
 
 .task-form {
   display: flex;
-  flex-direction: column;
-  padding-bottom: 1rem;
-}
-
-#input {
-  /* font-size: 3vh; */
-  /* height: 3.5vh; */
-  /* width: 20vw; */
-  /* align-self: center; */
-  /* border-radius: 3px; */
-  /* padding: 2px; */
-  border: var(--purple);
-}
-
-/* .custom-button {
-  border: 1px solid var(--white);
-  color: var(--white);
-  cursor: pointer;
   align-self: center;
-  text-align: center;
-  margin-top: 10px;
+  width: 50%;
 }
-
-.custom-button:hover {
-  border-color: var(--purple);
-  background-color: var(--white);
-  opacity: 0.7;
-  color: var(--purple); */
-/* } */
 
 .task-item {
   display: flex;
   justify-content: space-between;
-  font-size: 3vh;
+  font-size: 1vw;
+}
+
+.task-title {
+  padding-top: 4px;
 }
 
 .task {
@@ -122,7 +101,7 @@
 }
 
 .task-check {
-  font-size: 3vh;
+  font-size: 1.2vw;
   padding: 1px 10px 0px 0px;
 }
 
@@ -133,6 +112,7 @@
 #trash {
   color: grey;
   opacity: 0.7;
+  font-size: 1.2vw;
 }
 
 #trash:hover {
